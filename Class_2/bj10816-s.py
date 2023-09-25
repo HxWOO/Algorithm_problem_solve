@@ -5,10 +5,13 @@ n_list = list(map(int, sys.stdin.readline().split()))
 
 m = int(sys.stdin.readline())
 m_list = list(map(int, sys.stdin.readline().split()))
+cnt = [0]*20000001
 
-n_list.sort()
+for num in n_list:
+    cnt[num] += 1
+
 res = []
 for num in m_list:
-    res.append(n_list.count(num))
+    res.append(cnt[num])
 
 print(*res)
