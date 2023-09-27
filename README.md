@@ -40,3 +40,13 @@
 - ```python
     dp = [[0 for i in range(15)] for 0 in range(15)]
 ---
+### Deque
+- 보통의 큐는 선입선출, 덱은 양방향 큐임
+- 일반적인 리스트와 다르게 덱은 양끝 엘리먼트에 대해 append, pop이 압도적으로 빠름 O(1)
+- ```python
+  from collections import  # 이렇게 import 해서 사용
+  
+  deq = deque()  # 선언
+- 덱의 메서드들
+- append, appendleft, pop, popleft, extend, extendleft, rotate
+- rotate : 양수, 음수 값을 파라미터로 넣어서 좌, 우로 회전 가능
