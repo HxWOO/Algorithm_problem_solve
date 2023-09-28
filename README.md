@@ -50,3 +50,8 @@
 - 덱의 메서드들
 - append, appendleft, pop, popleft, extend, extendleft, rotate
 - rotate : 양수, 음수 값을 파라미터로 넣어서 좌, 우로 회전 가능
+---
+### round 함수
+- 파이썬에서 반올림 함수인 round() 함수는 일반적인 반올림 기법과 다르게 오사오입 기법임
+- 오사오입: 앞자리 정수가 짝수면 5에서 버리고, 홀수면 5에서 올림
+- math.ceil(): 올림, math.floor(): 내림 / 두 함수를 적절히 이용해서 사사오입하는 함수를 만들 수 있음 
