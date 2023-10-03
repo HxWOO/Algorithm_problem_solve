@@ -54,4 +54,42 @@
 ### round 함수
 - 파이썬에서 반올림 함수인 round() 함수는 일반적인 반올림 기법과 다르게 오사오입 기법임
 - 오사오입: 앞자리 정수가 짝수면 5에서 버리고, 홀수면 5에서 올림
-- math.ceil(): 올림, math.floor(): 내림 / 두 함수를 적절히 이용해서 사사오입하는 함수를 만들 수 있음 
+- math.ceil(): 올림, math.floor(): 내림 / 두 함수를 적절히 이용해서 사사오입하는 함수를 만들 수 있음
+
+---
+### 파이썬의 재귀
+- 파이썬의 재귀 limit는 1000으로 매우 작기 때문에
+- ```python 
+  sys.setrecursionlimit()
+- 를 이용해 재귀 깊이를 늘려줘야 함
+---
+### DFS
+
+- DFS란 Depth first search의 약자로서 그래프 자료에서 데이터를 탐색하는 알고리즘입니다.
+- 항상 "앞으로 찾아 가야할 노드"와 "이미 방문한 노드"를 기준으로 데이터를 탐색
+- 스택/큐 or 재귀함수 활용 가능
+- ```python 
+  def dfs2(graph, start_node):
+    ## deque 패키지 불러오기
+    from collections import deque
+    visited = []
+    need_visited = deque()
+    
+    ##시작 노드 설정해주기
+    need_visited.append(start_node)
+    
+    ## 방문이 필요한 리스트가 아직 존재한다면
+    while need_visited:
+        ## 시작 노드를 지정하고
+        node = need_visited.pop()
+ 
+        ##만약 방문한 리스트에 없다면
+        if node not in visited:
+ 
+            ## 방문 리스트에 노드를 추가
+            visited.append(node)
+            ## 인접 노드들을 방문 예정 리스트에 추가
+            need_visited.extend(graph[node])
+                
+    return visited
+---
