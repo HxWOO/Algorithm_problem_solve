@@ -122,3 +122,14 @@
   list(set1)
   ~~~
   같은 방식으로 자유롭게 전환 가능
+---
+### heap 자료형
+- 최대, 최소 연산을 빠르게 하기 위한 완전이진트리
+- 파이썬 heqpq 모듈을 이용
+- ~~~
+  import heapq
+  heap = []
+  heapq.heappush(heap,50)
+  heapq.heappop(heap)
+  heapq.heapify(list)  #힙 자료형으로 변형
+  ~~~
