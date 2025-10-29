@@ -1,45 +1,25 @@
-from functools import cmp_to_key
+from collections import Counter
+import sys
+import math
 
-
-def cmp(tup_a, tup_b):
-    if tup_a[1] > tup_b[1]:
-        return 1
-    elif tup_a[1] < tup_b[1]:
-        return -1
-    else:
-        if tup_a[0] > tup_b[0]:
-            return -1
-        else:
-            return 1
-
-
-n = int(input())
+n = int(sys.stdin.readline().rstrip())
 nums = []
 
+total_sum = 0
 for i in range(n):
-    nums.append(int(input()))
+    num = int(sys.stdin.readline().rstrip())
+    total_sum += num
+    nums.append(num)
 
-freq_list = []
-for num in nums:
-    cnt = nums.count(num)
-    freq_list.append((num, cnt))
+nums.sort()
+print(round(total_sum/n))  # 산술 평균
+print(nums[n//2])  # 중앙 값
+counters = Counter(nums).most_common(2)
+if n == 1:
+    print(counters[0][0])
+elif counters[0][1] == counters[1][1]:  # 최빈값
+    print(counters[1][0])
+else:
+    print(counters[0][0])
 
-freq_list.sort(key=cmp_to_key(cmp))
-
-new_freq_list = []
-for freq in freq_list:
-    if freq not in new_freq_list:
-        new_freq_list.append(freq)  # 숫자, 숫자가 나온 횟수를 튜플로 저장
-
-print(sum(nums)//len(nums))  # 산술 평균
-print(sorted(nums).__getitem__((n+1)//2 - 1))  # 중앙값
-try:
-    if new_freq_list[-1][1] == new_freq_list[-2][1]:  # 최빈값, 여러개이면 두번째로 작은거 출력
-        print(new_freq_list[-2][0])
-    else:
-        print(new_freq_list[-1][0])
-
-except:  # 최빈값 리스트에 하나만 들어있을 경우
-    print(new_freq_list[-1][0])
-
-print(max(nums)-min(nums))  # 범위
+print(nums[-1]-nums[0])  # 범위
